@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Title</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/rem.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .headO{
+            width:100%;
+            height: 2.6rem;
+            background: url("img/jieshao.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .headO1{
+            width:1.5rem;
+            height: 1rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            left:3%;
+            top: 30%;
+        }
+        .fenxiang{
+            width:2.7rem;
+            height: 1.5rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            right:3%;
+            top:21%;
+        }
+        .detailMain{
+            width:100%;
+            height: 22.8rem;
+            overflow: hidden;
+        }
+        .time {
+            width: 100%;
+            height: 2.8rem;
+            font-size: 0.8rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 2.8rem;
+            background: #333;
+            padding-left: 0.8rem;
+        }
+        .detailContent{
+            width: 100%;
+            height: 20rem;
+            background: #f7f7f7;
+            position: relative;
+        }
+        .pic{
+            width:11rem;
+            height: 11.5rem;
+            border: 1px solid #aaa;
+            position: absolute;
+            left:15%;
+            top: 4%;
+        }
+        .pic1{
+            width:11rem;
+            height: 11.5rem;
+        }
+        .tit{
+            width:12.6rem;
+            height: 2.5rem;
+            position: absolute;
+            left:7%;
+            bottom: 18%;
+        }
+        .detail0{
+            width:2.1rem;
+            height: 2.5rem;
+            position: absolute;
+            left:0;
+            bottom:0;
+        }
+        .titMain{
+            width:10.5rem;
+            height: 2.47rem;
+            background:#e32e65;
+            font-size: 0.8rem;
+            font-weight: 900;
+            text-align: center;
+            line-height: 2.5rem;
+            color: #fff;
+            position: absolute;
+            left:16%;
+            bottom:2%;
+        }
+        .detailPrice{
+            position: absolute;
+            left:0;
+            bottom:0;
+        }
+        .detailName{
+            width:7.6rem;
+            overflow: hidden;
+            position: absolute;
+            left:27%;
+            bottom:0;
+        }
+        .bottom{
+            width:12.4rem;
+            height: 1rem;
+            position: absolute;
+            left:8%;
+            bottom:9%;
+            font-size: 0.8rem;
+            line-height: 1rem;
+        }
+        .span1{
+            position: absolute;
+            left:0;
+            bottom:0;
+        }
+        .span1 b{
+            font-weight: normal;
+        }
+        .span2{
+            position: absolute;
+            left:47%;
+            bottom:0;
+        }
+        .span3{
+            position: absolute;
+            right:1%;
+            bottom:0;
+        }
+        /*底部导航*/
+        .footer{
+            width: 100%;
+            height: 2.975rem;
+            background: #484850;
+            position: absolute;
+            left:0;
+            bottom:0;
+            display: -webkit-box;/*弹性盒布局为横向排布*/
+        }
+        .footer div{
+            width: 5.2rem;
+            font-size: 1rem;
+            font-weight: 900;
+            text-align: center;
+            line-height: 2.85rem;
+            color: #fff;
+            border-top:0.125rem solid #484850;
+            height: 2.85rem;
+            -webkit-box-flex: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="headO">
+        <div class="headO1"></div>
+        <div class="fenxiang"></div>
+    </div>
+    <div class="detailMain">
+        <div class="time">距离结束时间：04天01时15分47.2秒</div>
+        <div class="detailContent">
+            <!--<div class="pic"><img src="" alt="" class="pic1"></div>-->
+            <!--<div class="tit">-->
+                <!--<img src="img/detail0.jpg" alt="" class="detail0">-->
+                <!--<div class="titMain">-->
+                    <!--<span class="detailPrice">￥259</span>-->
+                    <!--<span class="detailName">灰色印花短袖T恤</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<p class="bottom">-->
+                <!--<span class="span1">市场价：<b>￥439</b></span>-->
+                <!--<span class="span2">4.8折</span>-->
+                <!--<span class="span3">125购买</span>-->
+            <!--</p>-->
+        </div>
+    </div>
+    <div class="footer">
+        <div style="border-color:red">介绍</div>
+        <div>详情</div>
+        <div>实拍</div>
+    </div>
+</div>
+<script>
+    /*定时器*/
+    window.onload=function(){
+        var n=118807;
+        run();
+        var t=setInterval(run,1000);
+        function run(){
+            if(n==0){
+                clearInterval(t);
+                btn.disabled=true;
+            }else{
+                var day = Math.floor(n/24/3600);//天
+                var hour = Math.floor((n%(24*3600))/3600);//时
+                var minu = Math.floor((n%(24*3600)%3600)/60);//分
+                var s = Math.floor(n%(24*3600)%3600%60);//秒
+                $(".time").get(0).innerHTML = '距离结束时间：'+sit(day)+'天'+sit(hour)+'时'+sit(minu)+'分'+sit(s)+'秒';
+                n--;
+            }
+        }
+    }
+    /*小于10的数字两位显示*/
+    function sit(n){
+        if(n<10){
+            return '0'+n;
+        }
+        else{
+            return ''+n;
+        }
+    }
+    /*内容区商品信息*/
+    $.ajax({
+        url:"http://datainfo.duapp.com/shopdata/getGoods.php",
+        dataType:"jsonp",
+        data:{
+            userID:localStorage.name,
+            goodsID:localStorage.detailimg
+        },
+        success:function(data){
+            console.log(data);
+            var str = "";
+            var old_price;
+            for(var i in data){
+                if(data[i].discount == 0){
+                    old_price = data[i].price;
+                }else{
+                    old_price = Math.floor(data[i].price/(data[i].discount*1/10));
+                }
+                str += '<div class="pic"><img src="'+data[i].goodsListImg+'" alt="" class="pic1"></div>';
+                str += '<div class="tit">';
+                str += '<img src="img/detail0.jpg" alt="" class="detail0">';
+                str += '<div class="titMain">';
+                str += '<span class="detailPrice">￥'+data[i].price+'</span>';
+                str += '<span class="detailName">灰色印花短袖T恤</span>';
+                str += '</div>';
+                str += '</div>';
+                str += '<p class="bottom">';
+                str += '<span class="span1">市场价：<b>￥'+old_price+'</b></span>';
+                str += '<span class="span2">'+data[i].discount+'折</span>';
+                str += '<span class="span3">'+data[i].buynumber+'购买</span>';
+                str += '</p>';
+            }
+            $(".detailContent").append(str);
+        }
+    })
+
+    /*头部箭头*/
+    $(".headO1").on("touchend",function(){
+        window.location.href="fenlei.html";
+    })
+    /*底部导航*/
+    $(".footer div").on("touchend",function(){
+        $(this).css("borderColor","red");
+        $(this).siblings().css("borderColor","#484850");
+    })
+    $(".footer div:eq(1)").on("touchend",function(){
+        window.location.href="goodsdal.html";
+    })
+    $(".footer div:eq(2)").on("touchend",function(){
+        window.location.href="shipai.html";
+    })
+</script>
+</body>
+</html>

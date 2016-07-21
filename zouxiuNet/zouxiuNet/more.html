@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Title</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/rem.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+        }
+        .headO{
+            width:100%;
+            height: 2.6rem;
+            background: url("img/more.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .headO1{
+            width:1.5rem;
+            height: 1rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            left:3%;
+            top: 30%;
+        }
+        .moreMain{
+            width: 100%;
+            height: 22.8rem;
+            background: #f7f7f7;
+            position: relative;
+        }
+        .twobox{
+            width: 14rem;
+            height: 21.2rem;
+            position: absolute;
+            left: 6.1%;
+            top: 5.5%;
+        }
+        .box1{
+            width: 13.9rem;
+            height: 11.2rem;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        li{
+            width: 13.9rem;
+            height: 2.75rem;
+            font-size: 1.2rem;
+            text-indent: 0.5rem;
+            line-height: 2.75rem;
+            color: #000;
+            font-weight: 900;
+            border-bottom: 1px solid #aaa;
+            position: relative;
+        }
+        .lilast{
+            border: none;
+        }
+        li span{
+            font-size: 1.2rem;
+            text-indent: 0.5rem;
+            color: #aaa;
+            font-weight: 900;
+            position: absolute;
+            right: 2%;
+            top: 0;
+        }
+        .box2{
+            margin-top: 0.7rem;
+            width: 13.9rem;
+            height: 5.5rem;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        .btn{
+            margin-top: 0.7rem;
+            width: 14rem;
+            height: 2.8rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            line-height: 2.8rem;
+            color: #fff;
+            font-weight: 900;
+            background:#e22b63;
+        }
+        /*底部导航*/
+        .footer{
+            width: 100%;
+            height: 2.975rem;
+            background: #484850;
+            position: absolute;
+            left:0;
+            bottom:0;
+            display: -webkit-box;/*弹性盒布局为横向排布*/
+        }
+        .footer div{
+            width: 3.2rem;
+            height: 2.975rem;
+            -webkit-box-flex: 1;
+        }
+        .footer div:nth-child(1){
+            background: url("img/bg6-1.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(2){
+            background: url("img/bg6-2.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(3){
+            background: url("img/bg6-3.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(4){
+            background: url("img/bg6-7.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(5){
+            background: url("img/bg6-10.jpg");
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="headO">
+        <div class="headO1"></div>
+    </div>
+    <div class="moreMain">
+        <div class="twobox">
+            <ul class="box1">
+                <li>
+                    常见问题
+                    <span>＞</span>
+                </li>
+                <li>
+                    系统设置
+                    <span>＞</span>
+                </li>
+                <li>
+                    软件更新
+                    <span>＞</span>
+                </li>
+                <li class="lilast">
+                    扫描二维码
+                    <span>＞</span>
+                </li>
+            </ul>
+            <ul class="box2">
+                <li>
+                    我要提意见
+                    <span>＞</span>
+                </li>
+                <li class="lilast">
+                    关于
+                    <span>＞</span>
+                </li>
+            </ul>
+            <input type="button" class="btn" value="退出登录">
+        </div>
+    </div>
+    <div class="footer">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<script>
+    $(".headO1").on("touchend",function(){
+        window.location.href="index.html";
+    })
+    $(".btn").on("touchend",function(){
+        localStorage.clear();
+        window.location.href="login.html";
+    })
+
+    /*底部导航*/
+    $(".footer div").eq(0).on("touchend",function(){
+        window.location.href="index.html";
+    })
+    $(".footer div").eq(1).on("touchend",function(){
+        window.location.href="fenlei.html";
+    })
+    $(".footer div").eq(2).on("touchend",function(){
+        window.location.href="goodbar.html";
+    })
+    $(".footer div").eq(3).on("touchend",function(){
+        window.location.href="myshow.html";
+    })
+    $(".footer div").eq(4).on("touchend",function(){
+        window.location.href="more.html";
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>title</title>
+    <script src="js/rem.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/iscroll.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .div1{
+            width: 100%;
+            height: 100%;
+            /*background: url("img/pic1.jpg") no-repeat;*/
+            /*background-size: 100% 100%;*/
+            position: relative;
+        }
+        .go{
+            width:100%;
+            height: 2.59rem;
+            background: url("img/go.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .headO1{
+            width:1.5rem;
+            height: 1rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            left:3%;
+            top: 30%;
+        }
+        .jiesuan{
+            width: 2.3rem;
+            height: 1.5rem;
+            background: yellow;
+            position: absolute;
+            right: 4.5%;
+            top: 1.8%;
+            opacity: 0;
+        }
+        .barMain{
+            width:100%;
+            height: 22.7rem;
+            background: #fefcfd;
+            font-size:1rem ;
+            position: absolute;
+            left:0;
+            top: 9.4%;
+        }
+        /*空购物车*/
+        .nullbar{
+            width: 11rem;
+            height: 15.1rem;
+            background: url("img/nullbar.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left:16%;
+            top: 8.6%;
+        }
+        .quguang{
+            width: 10.5rem;
+            height: 2.898rem;
+            background: greenyellow;
+            position: absolute;
+            right: 2.5%;
+            bottom: 0;
+            opacity: 0;
+        }
+        /*有商品的购物车*/
+        .barTitle{
+            width:100%;
+            height: 2.7rem;
+            background: #000;
+            position: relative;
+        }
+        .shuliang{
+            width:5.3rem;
+            height: 2.7rem;
+            position: absolute;
+            left:3%;
+            top: 0;
+            font-size: 0.7rem;
+            font-weight: 900;
+            line-height: 2.7rem;
+            color: #fff;
+        }
+        .zongjia{
+            width:9.6rem;
+            height: 2.7rem;
+            position: absolute;
+            right:3%;
+            top: 0;
+            font-size: 0.7rem;
+            font-weight: 900;
+            line-height: 2.7rem;
+            color: #fff;
+        }
+        .zongjia span{
+            color: red;
+        }
+        .bargoods{
+            width:100%;
+            height: 20.1rem;
+            overflow: hidden;
+        }
+        .bargood{
+            width:100%;
+            height: auto;
+        }
+        dl{
+            width:100%;
+            height: 7.3rem;
+            border-bottom: 1px solid #aaa;
+            position: relative;
+        }
+        dt{
+            width:4.3rem;
+            height:5.3rem;
+            border: 1px solid #aaa;
+            position: absolute;
+            left: 5%;
+            top: 13%;
+        }
+        .img1{
+            width:4.3rem;
+            height:5.3rem;
+        }
+        dd{
+            width:9.6rem;
+            height:5.4rem;
+            position: absolute;
+            right: 4%;
+            top: 13%;
+        }
+        .title{
+            width:9.6rem;
+            height:2.6rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .picName{
+            width:7.6rem;
+            height:2.6rem;
+            font-size: 0.8rem;
+            line-height: 1.3rem;
+            font-weight: 900;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .delect{
+            width:1rem;
+            height:1.3rem;
+            font-size: 0.9rem;
+            font-weight: 900;
+            overflow: hidden;
+            position: absolute;
+            right: 0;
+            top: 2%;
+        }
+        .decimg{
+            width:1rem;
+            height:1.3rem;
+        }
+        .p1{
+            width:9.6rem;
+            height:1.2rem;
+            font-size: 0.8rem;
+            font-weight: 900;
+            line-height: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: 48.87%;
+        }
+        .newprice{
+            color: red;
+        }
+        .medio{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .p2{
+            width:9.6rem;
+            height:1.6rem;
+            font-size: 0.8rem;
+            font-weight: 900;
+            line-height: 1.4rem;
+            position: absolute;
+            left: 0;
+            bottom:0;
+        }
+        .small{
+            width:1.4rem;
+            height:1.2rem;
+            font-size: 0.8rem;
+            color:#fff;
+            text-align: center;
+            border: 1px solid #5f5f5f;
+            border-radius: 5px;
+            background:#5f5f5f;
+            font-weight: 900;
+            line-height: 1.2rem;
+            position: absolute;
+            left: 26%;
+            bottom:2%;
+        }
+        .count{
+            width:1.8rem;
+            height:1.2rem;
+            font-size: 0.8rem;
+            text-align: center;
+            border: 1px solid #5f5f5f;
+            border-radius: 5px;
+            font-weight: 900;
+            line-height: 1.2rem;
+            position: absolute;
+            left: 45%;
+            bottom:2%;
+        }
+        .big{
+            width:1.4rem;
+            height:1.2rem;
+            font-size: 0.8rem;
+            color:#fff;
+            text-align: center;
+            border: 1px solid #5f5f5f;
+            border-radius: 5px;
+            background:#5f5f5f;
+            font-weight: 900;
+            line-height: 1.2rem;
+            position: absolute;
+            left: 68%;
+            bottom:2%;
+        }
+
+        /*底部导航*/
+        .footer{
+            width: 100%;
+            height: 2.975rem;
+            background: #484850;
+            position: absolute;
+            left:0;
+            bottom:0;
+            display: -webkit-box;/*弹性盒布局为横向排布*/
+        }
+        .footer div{
+            width: 3.2rem;
+            height: 2.975rem;
+            -webkit-box-flex: 1;
+        }
+        .footer div:nth-child(1){
+            background: url("img/bg6-1.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(2){
+            background: url("img/bg6-2.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(3){
+            background: url("img/bg6-9.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(4){
+            background: url("img/bg6-7.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(5){
+            background: url("img/bg6-5.jpg");
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">
+    <div class="go">
+        <div class="headO1"></div>
+    </div>
+    <div class="jiesuan"></div>
+    <div class="barMain">
+        <!--空购物车-->
+        <div class="nullbar">
+            <div class="quguang"></div>
+        </div>
+        <!--有商品的购物车-->
+        <div class="barTitle">
+            <div class="shuliang">
+                商品数量:
+                <span>1</span>
+            </div>
+            <div class="zongjia">
+                应付总额(不含运费):
+                <span>￥199</span>
+            </div>
+        </div>
+        <div class="bargoods">
+            <div class="bargood">
+                <!--<dl>-->
+                    <!--<dt><img src="" alt="" class="img1"></dt>-->
+                    <!--<dd>-->
+                        <!--<div class="title">-->
+                            <!--<div class="picName">ESPRIT气质V领玫红T恤</div>-->
+                            <!--<span class="delect"><img src="img/delect.jpg" alt="" class="decimg"></span>-->
+                        <!--</div>-->
+                        <!--<p class="p1">-->
+                            <!--单价：-->
+                            <!--<span class="newprice">￥199</span>-->
+                            <!--<span class="medio">L</span>-->
+                        <!--</p>-->
+                        <!--<p class="p2">-->
+                            <!--数量：-->
+                            <!--<div class="small">-</div>-->
+                            <!--<div class="count">1</div>-->
+                            <!--<div class="big">+</div>-->
+                        <!--</p>-->
+                    <!--</dd>-->
+                <!--</dl>-->
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<script>
+    var chujian = $(".shuliang span").html();
+    if(chujian == 0){
+        $(".barTitle").css("display","block");
+        $(".bargoods").css("display","block");
+        $(".nullbar").css("display","none");
+    }else{
+        $(".barTitle").css("display","none");
+        $(".bargoods").css("display","none");
+        $(".nullbar").css("display","block");
+    }
+    $(".headO1").on("touchend",function(){
+        window.location.href="fenlei.html";
+    })
+    $(".jiesuan").on("touchend",function(){
+        window.location.href="dingdan.html";
+    })
+    $.ajax({
+        url:"http://datainfo.duapp.com/shopdata/getCar.php",
+        dataType:"jsonp",
+        data:{
+            userID:localStorage.getItem("name")
+        },
+        success:function(data){
+            $(".barTitle").css("display","block");
+            $(".bargoods").css("display","block");
+            $(".nullbar").css("display","none");
+            console.log(data);
+            var html = "";
+            for(var i in data){
+                html += '<dl>';
+                html += '<dt><img src="'+data[i].goodsListImg+'" alt="" class="img1"></dt>';
+                html += '<dd>';
+                html += '<div class="title">';
+                html += '<div class="picName">'+data[i].goodsName+'</div>';
+                html += '<span class="delect" dataid="'+data[i].goodsID+'"><img src="img/delect.jpg" alt="" class="decimg"></span>';
+                html += '</div>';
+                html += '<p class="p1">单价：';
+                html += '<span class="newprice">￥'+data[i].price+'</span>';
+                html += '<span class="medio">L</span>';
+                html += '</p>';
+                html += '<p class="p2">数量：';
+                html += '<div class="small">-</div>';
+                html += '<div class="count">1</div>';
+                html += '<div class="big">+</div>';
+                html += '</p>';
+                html += '</dd>';
+                html += '</dl>';
+            }
+            $(".bargood").append(html);
+            var myiscroll1 = new IScroll(".bargoods",{vscrollbar:true});
+            document.addEventListener("touchmove",function(ev){
+                ev.preventDefault()
+            })
+        }
+    })
+
+    window.onload=function(){
+        /*改变选购数量*/
+        $(".small").on("touchend",function(){
+            var count = $(this).siblings(".count").html();
+            if(count >1){
+                count--;
+                $(this).siblings(".count").html(count);
+            }
+            jiajian();
+        })
+        $(".big").on("touchend",function(){
+            var count = $(this).siblings(".count").html();
+            count++;
+            $(this).siblings(".count").html(count);
+            jiajian();
+        })
+        /*计算商品总数量和总价*/
+        function jiajian(){
+            var len = $(".count").size();
+            var zongjian = 0;//总件
+            var zongjia = 0;//总价
+            for(var i=0;i<len;i++){
+                var jian =$(".count").eq(i).html();//件数
+                zongjian = zongjian*1+jian*1;
+                var danjiastr =$(".newprice").eq(i).html()//￥单价
+                var danjia =danjiastr.substring(1,danjiastr.length);//单价
+                zongjia = zongjia*1+(jian*1)*(danjia*1);
+            }
+            $(".shuliang span").html(zongjian);
+            $(".zongjia span").html(zongjia);
+        }
+        jiajian();
+        /*删除商品*/
+        $(".delect").on("touchend",function(){
+            var delc = $(this).attr("dataid");
+            localStorage.setItem("remove",delc);
+            $(this).parent().parent().parent().remove();
+            var leng = $(".delect").size();
+            if(leng == 0){
+                $(".barTitle").css("display","none");
+                $(".bargood").css("display","none");
+                $(".nullbar").css("display","block");
+            }
+            jiajian();
+        })
+     }
+
+    /*底部导航*/
+    $(".footer div").eq(0).on("touchend",function(){
+        window.location.href="index.html";
+    })
+    $(".footer div").eq(1).on("touchend",function(){
+        window.location.href="fenlei.html";
+    })
+    $(".footer div").eq(2).on("touchend",function(){
+        window.location.href="goodbar.html";
+    })
+    $(".footer div").eq(3).on("touchend",function(){
+        window.location.href="myshow.html";
+    })
+    $(".footer div").eq(4).on("touchend",function(){
+        window.location.href="more.html";
+    })
+</script>
+</body>
+</html>

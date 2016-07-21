@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>title</title>
+    <script src="js/rem.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/iscroll.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul,ol,li{
+           list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .div1{
+            width: 100%;
+            height: 100%;
+        }
+        .head{
+            width: 100%;
+            height: 5.43rem;
+            background: url("img/bg7-1.jpg") no-repeat top left;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .sou{
+            width: 2rem;
+            height: 1.5rem;
+            position: absolute;
+            left:7%;
+            top: 62.15%;
+        }
+        .findMain{
+            width: 12.3rem;
+            height: 1.5rem;
+            border:none;
+            font-size:1rem ;
+            position: absolute;
+            left:16.1%;
+            top: 62.15%;
+        }
+        .Main{
+            width:100%;
+            height: 20rem;
+            background: #fefcfd;
+            font-size:1rem ;
+        }
+        .both{
+            width:100%;
+            height: 2.65rem;
+            border-bottom: 1px solid #aaa;
+            font-size: 1.3rem;
+            line-height: 2.65rem;
+            padding-left: 0.4rem;
+            color: #000;
+            position: relative;
+        }
+        .both span{
+            font-size: 0.8rem;
+            line-height: 2.65rem;
+            font-weight: 900;
+            color: #aaa;
+            position: absolute;
+            right:6.3%;
+            top: 8.15%;
+        }
+        #box{
+            width:100%;
+            height:17.4rem;
+            overflow: hidden;
+            display: none;
+        }
+        ul{
+            width: 100%;
+            height: auto;
+        }
+        li{
+            width:100%;
+            height:2.65rem;
+            padding-left: 0.4rem;
+            color: #000;
+            border-bottom: 1px solid #aaa;
+            font-size: 1.3rem;
+            line-height: 2.65rem;
+            position: relative;
+        }
+        li span{
+            font-size: 0.8rem;
+            line-height: 2.65rem;
+            font-weight: 900;
+            color: #aaa;
+            position: absolute;
+            right:6.3%;
+            top: 8.15%;
+        }
+        .list{
+            width:100%;
+            height:17.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+        #list{
+            width:100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        dl{
+            width: 100%;
+            height:6.8rem;
+            border-bottom: 1px solid #000;
+            position: relative;
+        }
+        dt{
+            width: 4.3rem;
+            height:5.3rem;
+            position: absolute;
+            left: 2.5%;
+            top: 10.3%;
+        }
+        dd{
+            width: 10.3rem;
+            height:5.3rem;
+            position: absolute;
+            left: 31%;
+            top: 10.3%;
+        }
+        dd h3{
+            width: 8.1rem;
+            height:2.8rem;
+            font-size:0.83rem;
+            line-height: 1.4rem;
+            overflow: hidden;
+        }
+        .shoucang{
+            width: 1.7rem;
+            height:1rem;
+            font-size:0.83rem;
+            background: #aaa;
+            color: #fff;
+            line-height: 1rem;
+            border-radius: 5px;
+            position: absolute;
+            right: 1%;
+            top: 16%;
+        }
+        .price{
+            width: 5rem;
+            height:1.5rem;
+        }
+        .newPrice{
+            font-size:1rem;
+            color: red;
+            line-height: 1.5rem;
+        }
+        .oldPrice{
+            font-size:0.7rem;
+            color: #ccc;
+            line-height: 1.5rem;
+            text-decoration: line-through;
+        }
+        .zhekou{
+            width: 5rem;
+            height:1rem;
+            font-size:0.7rem;
+            color: #000;
+        }
+        .img{
+            width: 4.3rem;
+            height:5.3rem;
+        }
+        .goodbar{
+            width: 3.5rem;
+            height:2rem;
+            background: url("img/bar.jpg") no-repeat top left;
+            background-size: 100% 100%;
+            position: absolute;
+            right:0;
+            bottom: 0;
+        }
+        .footer{
+            width: 100%;
+            height: 2.975rem;
+            background: #484850;
+            position: absolute;
+            left:0;
+            bottom:0;
+            display: -webkit-box;/*弹性盒布局为横向排布*/
+        }
+        .footer div{
+            width: 3.2rem;
+            height: 2.975rem;
+            -webkit-box-flex: 1;
+        }
+        .footer div:nth-child(1){
+            background: url("img/bg6-1.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(2){
+            background: url("img/bg6-8.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(3){
+            background: url("img/bg6-3.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(4){
+            background: url("img/bg6-7.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(5){
+            background: url("img/bg6-5.jpg");
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">
+    <div class="head">
+        <div class="sou"></div>
+        <input type="text" placeholder="请输入搜索内容" class="findMain">
+    </div>
+    <div class="Main">
+        <div class="both">
+            全部
+            <span>∧</span>
+        </div>
+        <div id="box">
+            <ul></ul>
+        </div>
+        <div class="list">
+            <div id="list">
+                <!--<dl>-->
+                    <!--<dt></dt>-->
+                    <!--<dd>-->
+                        <!--<h3></h3>-->
+                        <!--<p class="price">-->
+                            <!--<span class="newPrice">￥0</span>-->
+                            <!--<span class="oldPrice">￥28880</span>-->
+                        <!--</p>-->
+                        <!--<p class="zhekou">0折</p>-->
+                        <!--<div class="goodbar" dataid="'+data[i].goodsID+'"></div>-->
+                    <!--</dd>-->
+                <!--</dl>-->
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<script>
+    var count=0;
+    $(".both span").on("touchend",function(){
+        if(count%2 == 1){
+            $(this).html("∧");
+            $("#box").slideUp("slow");
+        }else{
+            $(this).html("∨");
+            $(".list").css("display","none");
+            $("#box").slideDown("slow");
+            var myiscroll1 = new IScroll("#box",{vscrollbar:true});
+            document.addEventListener("touchmove",function(ev){
+                ev.preventDefault()
+            })
+        }
+        count++;
+    })
+    var classarr = [];
+    $.ajax({
+        url:"http://datainfo.duapp.com/shopdata/getclass.php",
+        dataType:"json",
+        success:function(data){
+            console.log(data);
+            var html ="";
+            for(var i in data){
+//                console.log(data[i].className);
+                html += '<li>'+data[i].className+'<span>＞</span></li>';
+                classarr.push(data[i].className);
+           }
+            $("ul").append(html);
+        }
+    })
+    /*搜索*/
+    $(".sou").on("touchend",function(){
+        var Str = $(".findMain").val();
+        $.ajax({
+            url:"http://datainfo.duapp.com/shopdata/selectGoodes.php",
+            data:{
+                selectText:encodeURI(Str)
+            },
+            dataType:"jsonp",
+            success:function(data){
+                $("#list dl").remove();
+                $(".list").css("display","block");
+                $(".both span").html("∧");
+                $("#box").slideUp("slow");
+                var str = "";
+                var old_price;
+                for(var i in data){
+                    if(data[i].discount == 0){
+                        old_price = data[i].price;
+                    }else{
+                        old_price = Math.floor((data[i].price*100)/(data[i].discount*1));
+                    }
+                    str += '<dl>';
+                    str += '<dt><img src="'+data[i].goodsListImg+'" class="img" imgId="'+data[i].goodsID+'"></dt>';
+                    str += '<dd><span class="shoucang" spanId="'+data[i].goodsID+'">收藏</span>';
+                    str += '<h3>'+data[i].goodsName+'</h3>';
+                    str += '<p class="price"><span class="newPrice">￥'+data[i].price+'</span>';
+                    str += '<span class="oldPrice">￥'+old_price+'</span>';
+                    str += '</p><p class="zhekou">'+data[i].discount+'折</p><div class="goodbar" dataid="'+data[i].goodsID+'"></div></dd></dl>';
+                }
+                $("#list").append(str);
+                var myiscroll2 = new IScroll(".list",{vscrollbar:true});
+                document.addEventListener("touchmove",function(ev){
+                    ev.preventDefault()
+                })
+                goodbar();
+            }
+        })
+    });
+    function goodbar(){
+        $(".goodbar").on("touchend",function(){
+            var dataid = $(this).attr("dataid");
+            $.ajax({
+                url:"http://datainfo.duapp.com/shopdata/updatecar.php",
+                data:{
+                    userID:localStorage.name,
+                    goodsID:dataid
+                },
+                success:function(data){
+                    console.log(data);
+                }
+            })
+        });
+        /*点击商品图片查看商品详情*/
+        $(".img").on("touchend",function(){
+            lookArr = [];
+            lookArr.push(localStorage.look)
+            localStorage.removeItem("detailimg");//详情
+            var detailName = $(this).attr("imgId");
+            lookArr.push(detailName);
+            localStorage.setItem("look",lookArr);//浏览历史记录
+            localStorage.setItem("detailimg",detailName);//详情
+            window.location.href="detail.html";
+        });
+        /*收藏商品*/
+        $(".shoucang ").on("touchend",function(){
+            cangArr = [];
+            cangArr.push(localStorage.shoucang)
+            var cangName = $(this).attr("spanId");
+            cangArr.push(cangName);
+            localStorage.setItem("shoucang",cangArr);//浏览收藏记录
+        });
+    }
+    /*底部导航*/
+    $(".footer div").eq(0).on("touchend",function(){
+        window.location.href="index.html";
+    })
+    $(".footer div").eq(1).on("touchend",function(){
+        window.location.href="fenlei.html";
+    })
+    $(".footer div").eq(2).on("touchend",function(){
+        window.location.href="goodbar.html";
+    })
+    $(".footer div").eq(3).on("touchend",function(){
+        window.location.href="myshow.html";
+    })
+    $(".footer div").eq(4).on("touchend",function(){
+        window.location.href="more.html";
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Title</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/rem.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .div{
+            width: 100%;
+            height: 100%;
+        }
+        .header{
+            width: 100%;
+            height: 28.4rem;
+            background: url("img/bg5.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .loginBtn{
+            width: 2.3rem;
+            height: 1.5rem;
+            background: yellow;
+            position: absolute;
+            right: 4.5%;
+            top: 2%;
+            opacity: 0;
+        }
+        .name{
+            width: 88%;
+            height: 9.2%;
+            border-radius:10px;
+            font-size:1.2rem ;
+            line-height: 2.3rem;
+            position: absolute;
+            left:6.1%;
+            top: 18.3%;
+        }
+        .pass{
+            width: 88%;
+            height: 9.2%;
+            border-radius:10px;
+            font-size:1.2rem ;
+            line-height: 2.3rem;
+            position: absolute;
+            left: 6.1%;
+            top: 33.3%;
+        }
+        .affirm{
+            width: 88%;
+            height: 9.2%;
+            border-radius:10px;
+            font-size:1.2rem ;
+            line-height: 2.3rem;
+            position: absolute;
+            left: 6.1%;
+            top: 48.7%;
+        }
+        .registerBtn{
+            width: 13.8rem;
+            height: 2.5rem;
+            background: yellow;
+            position: absolute;
+            left: 6.6%;
+            bottom: 22%;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <div class="header">
+            <div class="loginBtn"></div>
+            <input type="text" class="name" placeholder="账号">
+            <input type="text" class="pass" placeholder="密码">
+            <input type="text" class="affirm" placeholder="重复密码">
+            <div class="registerBtn"></div>
+        </div>
+    </div>
+    <script>
+        $(".loginBtn").click(function(){
+            window.location.href="login.html";
+        })
+        $(".registerBtn").click(function(){
+            var name = $(".name").val();
+            var pass = $(".pass").val();
+            $.ajax({
+                url:"http://datainfo.duapp.com/shopdata/userinfo.php",
+                data:{
+                    status:"register",
+                    userID:name,
+                    password:pass
+                },
+                success:function(data){
+                    console.log(data);
+                    if(data == 1){
+                        alert("注册成功！");
+                        window.location.href="login.html";
+                    }else if(data ==0){
+                        alert("用户名重名！");
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>

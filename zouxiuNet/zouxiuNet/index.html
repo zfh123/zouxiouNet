@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>title</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/swiper.min.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/iscroll.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .div1{
+            width: 100%;
+            height: 100%;
+        }
+        .head{
+            width: 100%;
+            height: 5.43rem;
+            background: url("img/bg7-1.jpg") no-repeat top left;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .sou{
+            width: 2rem;
+            height: 1.5rem;
+            position: absolute;
+            left:7%;
+            top: 62.15%;
+        }
+        .findMain{
+            width: 12.3rem;
+            height: 1.5rem;
+            border:none;
+            font-size:1rem ;
+            /*line-height: 2.3rem;*/
+            position: absolute;
+            left:16.1%;
+            top: 62.3%;
+        }
+        .swiper-container{
+            width: 100%;
+            height: 7.75rem;
+            overflow: hidden;
+        }
+        .swiper-pagination-bullet{
+            background: #fff;
+            opacity: 1;
+        }
+        .swiper-pagination-bullet-active{
+            background: red;
+            opacity: 1;
+        }
+        .content{
+            width: 100%;
+            height:12.25rem;
+            overflow: hidden;
+            position: relative;
+        }
+        .list{
+            width:100%;
+            position: absolute;
+        }
+        dl{
+            width: 100%;
+            height:6.8rem;
+            border-bottom: 1px solid #000;
+            position: relative;
+        }
+        dt{
+            width: 4.3rem;
+            height:5.3rem;
+            position: absolute;
+            left: 2.5%;
+            top: 10.3%;
+        }
+        dd{
+            width: 10.3rem;
+            height:5.3rem;
+            position: absolute;
+            left: 31%;
+            top: 10.3%;
+        }
+        dd h3{
+            width: 10.3rem;
+            height:2.8rem;
+            font-size:0.83rem;
+            line-height: 1.4rem;
+            overflow: hidden;
+        }
+        .price{
+            width: 5rem;
+            height:1.5rem;
+        }
+        .newPrice{
+            font-size:1rem;
+            color: red;
+            line-height: 1.5rem;
+        }
+        .oldPrice{
+            font-size:0.7rem;
+            color: #ccc;
+            line-height: 1.5rem;
+            text-decoration: line-through;
+        }
+        .zhekou{
+            width: 5rem;
+            height:1rem;
+            font-size:0.7rem;
+            color: #000;
+        }
+        .img{
+            width: 4.3rem;
+            height:5.3rem;
+        }
+        .goodbar{
+            width: 3.5rem;
+            height:2rem;
+            background: url("img/bar.jpg") no-repeat top left;
+            background-size: 100% 100%;
+            position: absolute;
+            right:0;
+            bottom: 0;
+        }
+        .last{
+            width:100%;
+            height:20rem;
+            overflow: hidden;
+            position: relative;
+        }
+        #last{
+            width:100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .footer{
+            width: 100%;
+            height: 2.88rem;
+            background: #484850;
+            position: absolute;
+            left:0;
+            bottom:0;
+            display: -webkit-box;/*弹性盒布局为横向排布*/
+        }
+        .footer div{
+            width: 3.2rem;
+            height: 2.88rem;
+            -webkit-box-flex: 1;
+        }
+        .footer div:nth-child(1){
+            background: url("data:image/jpg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAdAAD/4QMpaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MCA2MS4xMzQ3NzcsIDIwMTAvMDIvMTItMTc6MzI6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyQ0MzMzVEMjNGODcxMUU2OUZGOUI3MzM0MTg2RTgwMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyQ0MzMzVEMzNGODcxMUU2OUZGOUI3MzM0MTg2RTgwMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjJDQzMzNUQwM0Y4NzExRTY5RkY5QjczMzQxODZFODAwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjJDQzMzNUQxM0Y4NzExRTY5RkY5QjczMzQxODZFODAwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQAEAsLCwwLEAwMEBgPDQ8YHBUQEBUc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");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(2){
+            background: url("img/bg6-2.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(3){
+            background: url("img/bg6-3.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(4){
+            background: url("img/bg6-7.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(5){
+            background: url("img/bg6-5.jpg");
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body onload="myiscroll">
+    <div class="div1">
+        <div class="head">
+            <div class="sou"></div>
+            <input type="text" placeholder="请输入搜索内容" class="findMain">
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper"></div>
+            <!--如果需要分页器-->
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="content" id="box">
+            <div class="list">
+                <!--<dl>-->
+                    <!--<dt></dt>-->
+                    <!--<dd>-->
+                        <!--<h3></h3>-->
+                        <!--<p class="price">-->
+                            <!--<span class="newPrice">￥0</span>-->
+                            <!--<span class="oldPrice">￥28880</span>-->
+                        <!--</p>-->
+                        <!--<p class="zhekou">0折</p>-->
+                        <!--<div class="goodbar"></div>-->
+                    <!--</dd>-->
+                <!--</dl>-->
+            </div>
+        </div>
+        <div class="last">
+            <div id="last"></div>
+        </div>
+        <div class="footer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script>
+        var ct = $(".findMain").val();
+        if(ct == ""){
+            $(".swiper-container").css("display","block");
+            $(".content").css("display","block");
+            $(".last").css("display","none");
+        }else{
+            $(".swiper-container").css("display","none");
+            $(".content").css("display","none");
+            $(".last").css("display","block");
+        }
+
+        window.onload=function(){
+            var mySwiper = new Swiper ('.swiper-container', {
+                direction: 'horizontal',
+                loop: true,
+                // 如果需要分页器
+                pagination: '.swiper-pagination',
+            })
+        }
+        $.ajax({
+            url:"http://datainfo.duapp.com/shopdata/getBanner.php",
+            dataType:"jsonp",
+            success:function(data){
+               console.log(data);
+                var html ="";
+                for(var i in data){
+//                    console.log(data[i].goodsBenUrl);
+                    var jsons = JSON.parse(data[i].goodsBenUrl);
+//                    console.log(jsons[0]);
+                    html += '<div class="swiper-slide"><img src="'+jsons[0]+'" style="width: 100%;height:7.75rem ;" /></div>';
+                }
+//                console.log(html);
+                $(".swiper-wrapper").append(html);
+            }
+        })
+/*下拉刷新&上拉加载*/
+        data();
+        var myiscroll = new IScroll("#box");console.log("myiscroll："+myiscroll);
+//        console.log(myiscroll.y);
+//        console.log(myiscroll.maxScrollY);
+        var classCou = 1;
+        document.addEventListener("touchend",function(ev){
+            if(myiscroll.y > 40){
+//                console.log("下拉刷新");
+//            console.log("myiscroll.y"+myiscroll.y);
+                myiscroll.refresh();
+            }else if(myiscroll.y < myiscroll.maxScrollY - 40){
+//            console.log("myiscroll.y："+myiscroll.y);
+//            console.log("myiscroll.maxScrollY："+myiscroll.maxScrollY);
+//                console.log("上拉加载");
+                classCou++;
+                data();
+                myiscroll.refresh();
+            }
+        })
+
+        function data(){
+            $.ajax({
+                url:"http://datainfo.duapp.com/shopdata/getGoods.php",
+                dataType:"jsonp",
+                data:{
+                    linenumber:3,
+                    classID:classCou
+                },
+                success:function(data){
+                    console.log(data);
+                    var str = "";
+                    var old_price;
+                    for(var i in data){
+                        if(data[i].discount == 0){
+                            old_price = data[i].price;
+                        }else{
+                            old_price = Math.floor(data[i].price/(data[i].discount*1/10));
+                        }
+                        str += '<dl>';
+                        str += '<dt><img src="'+data[i].goodsListImg+'" class="img"></dt>';
+                        str += '<dd>';
+                        str += '<h3>'+data[i].goodsName+'</h3>';
+                        str += '<p class="price"><span class="newPrice">￥'+data[i].price+'</span>';
+                        str += '<span class="oldPrice">￥'+old_price+'</span>';
+                        str += '</p><p class="zhekou">'+data[i].discount+'折</p><div class="goodbar"></div></dd></dl>';
+                    }
+                    $(".list").append(str);
+                }
+            })
+        }
+        /*搜索*/
+        $(".sou").on("touchend",function(){
+            var Str = $(".findMain").val();
+            $.ajax({
+                url:"http://datainfo.duapp.com/shopdata/selectGoodes.php",
+                data:{
+                    selectText:encodeURI(Str)
+                },
+                dataType:"jsonp",
+                success:function(data){
+                    $("#last dl").remove();
+                    $(".swiper-container").css("display","none");
+                    $(".content").css("display","none");
+                    $(".last").css("display","block");
+                    var string = "";
+                    var old_price;
+                    for(var i in data){
+                        if(data[i].discount == 0){
+                            old_price = data[i].price;
+                        }else{
+                            old_price = Math.floor(data[i].price/(data[i].discount*1/10));
+                        }
+                        string += '<dl>';
+                        string += '<dt><img src="'+data[i].goodsListImg+'" class="img"></dt>';
+                        string += '<dd>';
+                        string += '<h3>'+data[i].goodsName+'</h3>';
+                        string += '<p class="price"><span class="newPrice">￥'+data[i].price+'</span>';
+                        string += '<span class="oldPrice">￥'+old_price+'</span>';
+                        string += '</p><p class="zhekou">'+data[i].discount+'折</p><div class="goodbar"></div></dd></dl>';
+                    }
+                    $("#last").append(string);
+                    var myiscroll2 = new IScroll(".last",{vscrollbar:true});
+                    document.addEventListener("touchmove",function(ev){
+                        ev.preventDefault()
+                    })
+                }
+            })
+        });
+        /*底部导航*/
+        $(".footer div").eq(0).on("touchend",function(){
+            window.location.href="index.html";
+        })
+        $(".footer div").eq(1).on("touchend",function(){
+            window.location.href="fenlei.html";
+        })
+        $(".footer div").eq(2).on("touchend",function(){
+            window.location.href="goodbar.html";
+        })
+        $(".footer div").eq(3).on("touchend",function(){
+            window.location.href="myshow.html";
+        })
+        $(".footer div").eq(4).on("touchend",function(){
+            window.location.href="more.html";
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Title</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/rem.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            background: url("img/pic2.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .userName{
+            height: 1.6rem;
+            font-size: 1rem;
+            line-height: 1.6rem;
+            background: #f7f7f7;
+            position: absolute;
+            left: 36%;
+            top: 18.5%;
+        }
+        .btn1{
+            width: 2.6rem;
+            height: 1.6rem;
+            font-size: 1rem;
+            line-height: 1.6rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            left: 36.7%;
+            top: 27.87%;
+        }
+        .btn2{
+            width: 2.6rem;
+            height: 1.6rem;
+            font-size: 1rem;
+            line-height: 1.6rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            left: 60%;
+            top: 27.87%;
+        }
+        .next1{
+            width: 1rem;
+            height: 1rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            right: 11%;
+            top: 46.8%;
+        }
+        .next2{
+            width: 1rem;
+            height: 1rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            right: 11%;
+            top: 56.5%;
+        }
+        .next3{
+            width: 1rem;
+            height: 1rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            right: 11%;
+            top: 66.4%;
+        }
+        .next4{
+            width: 1rem;
+            height: 1rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            right: 11%;
+            top: 76.2%;
+        }
+        .footer{
+            width: 100%;
+            height: 3.13rem;
+            background: #484850;
+            position: absolute;
+            left:0;
+            bottom:0;
+            display: -webkit-box;/*弹性盒布局为横向排布*/
+        }
+        .footer div{
+            width: 3.2rem;
+            height: 3.13rem;
+            background: blue;
+            -webkit-box-flex: 1;
+        }
+        .footer div:nth-child(1){
+            background: url("img/bg6-1.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(2){
+            background: url("img/bg6-2.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(3){
+            background: url("img/bg6-3.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(4){
+            background: url("img/bg6-4.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(5){
+            background: url("img/bg6-5.jpg");
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="userName">昵称：未知</div>
+        <div class="btn1"></div>
+        <div class="btn2"></div>
+        <div class="next1"></div>
+        <div class="next2"></div>
+        <div class="next3"></div>
+        <div class="next4"></div>
+        <div class="footer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script>
+        if(localStorage.getItem("name") == ""){
+            $(".userName").html("昵称：未知");
+        }else{
+            $(".userName").html(localStorage.getItem("name"));
+        }
+        /*登录注册*/
+        $(".btn1").on("touchend",function(){
+            window.location.href="login.html";
+        })
+        $(".btn2").on("touchend",function(){
+            window.location.href="register.html";
+        })
+        /*内容区导航*/
+        $(".next1").on("touchend",function(){
+            window.location.href="dingdan.html";
+        })
+        $(".next2").on("touchend",function(){
+            window.location.href="youhuijuan.html";
+        })
+        $(".next3").on("touchend",function(){
+            window.location.href="look.html";
+        })
+        $(".next4").on("touchend",function(){
+            window.location.href="shoucang.html";
+        })
+        /*底部导航*/
+        $(".footer div").eq(0).on("touchend",function(){
+            window.location.href="index.html";
+        })
+        $(".footer div").eq(1).on("touchend",function(){
+            window.location.href="fenlei.html";
+        })
+        $(".footer div").eq(2).on("touchend",function(){
+            window.location.href="goodbar.html";
+        })
+        $(".footer div").eq(3).on("touchend",function(){
+            window.location.href="myshow.html";
+        })
+        $(".footer div").eq(4).on("touchend",function(){
+            window.location.href="more.html";
+        })
+    </script>
+</body>
+</html>

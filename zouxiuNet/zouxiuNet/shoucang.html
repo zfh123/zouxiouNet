@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Title</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/iscroll.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .headO{
+            width:100%;
+            height: 2.6rem;
+            background: url("img/shoucang.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .headO1{
+            width:1.5rem;
+            height: 1rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            left:3%;
+            top: 30%;
+        }
+        .shoucangMain{
+            width:100%;
+            height: 22.8rem;
+            overflow: hidden;
+        }
+        .cang{
+            width:100%;
+            height:auto;
+        }
+        dl{
+            width:100%;
+            height: 7.3rem;
+            border-bottom: 1px solid #aaa;
+            position: relative;
+        }
+        dt{
+            width:4.3rem;
+            height:5.3rem;
+            border: 1px solid #aaa;
+            position: absolute;
+            left: 5%;
+            top: 13%;
+        }
+        .img1{
+            width:4.3rem;
+            height:5.3rem;
+        }
+        dd{
+            width:9.6rem;
+            height:5.4rem;
+            position: absolute;
+            right: 4%;
+            top: 13%;
+        }
+        .title{
+            width:9.6rem;
+            height:2.6rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .picName{
+            width:7.6rem;
+            height:1.3rem;
+            font-size: 0.8rem;
+            line-height: 1.3rem;
+            font-weight: 900;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .delect{
+            width:1rem;
+            height:1.3rem;
+            font-size: 0.9rem;
+            font-weight: 900;
+            overflow: hidden;
+            position: absolute;
+            right: 0;
+            top: 2%;
+        }
+        .decimg{
+            width:1rem;
+            height:1.3rem;
+        }
+        .zeng{
+            width:9.6rem;
+            height:1.3rem;
+            font-size: 0.9rem;
+            font-weight: 900;
+            line-height: 1.3rem;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 23%;
+        }
+        .p1{
+            width:9.6rem;
+            height:1.4rem;
+            font-size: 0.8rem;
+            font-weight: 900;
+            line-height: 1.4rem;
+            position: absolute;
+            left: 0;
+            top: 48.87%;
+        }
+        .newprice{
+            color: red;
+        }
+        .p2{
+            width:9.6rem;
+            height:1.4rem;
+            font-size: 0.8rem;
+            font-weight: 900;
+            line-height: 1.4rem;
+            position: absolute;
+            left: 0;
+            bottom:0;
+        }
+        .zhekou{
+            width:2.5rem;
+            height:1.4rem;
+            position: absolute;
+            left: 0;
+            bottom:0;
+        }
+        .oldprice{
+            height:1.4rem;
+            color: #aaa;
+            text-decoration: line-through;
+            position: absolute;
+            left: 28%;
+            bottom:0;
+        }
+        .bar{
+            width:2.4rem;
+            height:1.3rem;
+            border: 1px solid #dd1d59;
+            border-radius: 5px;
+            position: absolute;
+            right: 0;
+            bottom:0;
+        }
+        .barpic{
+            width:2.4rem;
+            height:1.3rem;
+        }
+        /*底部导航*/
+        .footer{
+            width:100%;
+            height: 2.975rem;
+            background: #484850;
+            position: absolute;
+            left:0;
+            bottom:0;
+            display: -webkit-box;/*弹性盒布局为横向排布*/
+        }
+        .footer div{
+            width: 3.2rem;
+            height: 2.975rem;
+            -webkit-box-flex: 1;
+        }
+        .footer div:nth-child(1){
+            background: url("img/bg6-1.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(2){
+            background: url("img/bg6-2.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(3){
+            background: url("img/bg6-3.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(4){
+            background: url("img/bg6-4.jpg");
+            background-size: 100% 100%;
+        }
+        .footer div:nth-child(5){
+            background: url("img/bg6-5.jpg");
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="headO">
+        <div class="headO1"></div>
+    </div>
+    <div class="shoucangMain">
+        <div class="cang">
+            <!--<dl>-->
+                <!--<dt><img src="" alt="" class="img1"></dt>-->
+                <!--<dd>-->
+                    <!--<div class="title">-->
+                        <!--<div class="picName">ESPRIT阿尼玛眼镜框</div>-->
+                        <!--<span class="delect"><img src="img/delect.jpg" alt="" class="decimg"></span>-->
+                    <!--</div>-->
+                    <!--<p class="zeng">【买一赠一】</p>-->
+                    <!--<p class="p1">-->
+                        <!--单价：-->
+                        <!--<span class="newprice">￥99</span>-->
+                    <!--</p>-->
+                    <!--<p class="p2">-->
+                        <!--<span class="zhekou">3.8折</span>-->
+                        <!--<span class="oldprice">￥499</span>-->
+                    <!--<div class="bar"><img src="img/bar.jpg" alt="" class="barpic"></div>-->
+                    <!--</p>-->
+                <!--</dd>-->
+            <!--</dl>-->
+        </div>
+    </div>
+    <div class="footer">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<script>
+    $(".headO1").on("touchend",function(){
+        window.location.href="myshow.html";
+    })
+    /*内容区*/
+    /*数组去重*/
+    Array.prototype.unique = function(){
+        var temp = [];
+        var json = {};
+        for(var i = 0; i < this.length; i++){
+            if(!json[this[i]]){
+                temp.push(this[i]);
+                json[this[i]] = 1;
+            }
+        }
+        return temp;
+    }
+    var getstr = localStorage.shoucang;//获取收藏的商品Id
+    var getArr = getstr.split(",");
+    //        console.log(getArr);
+    var endArr = getArr.unique()
+    //console.log(endArr);
+    for(var j =1;j<endArr.length;j++){
+        // var detaimg = endArr[j];
+        //console.log(detaimg);
+        $.ajax({
+            url:"http://datainfo.duapp.com/shopdata/getGoods.php",
+            dataType:"jsonp",
+            data:{
+                goodsID:endArr[j]
+            },
+            success:function(data){
+                console.log(data);
+                var str = "";
+                var old_price;
+                for(var i in data){
+                    if(data[i].discount == 0){
+                        old_price = data[i].price;
+                    }else{
+                        old_price = Math.floor(data[i].price/(data[i].discount*1/10));
+                    }
+//                        console.log(data[i].goodsListImg)
+                    if(data[i].goodsListImg!==undefined){
+                        str += '<dl><dt><img src="'+data[i].goodsListImg+'" alt="" class="img1"></dt>';
+                        str += '<dd>';
+                        str += '<div class="title">';
+                        str += '<div class="picName">'+data[i].goodsName+'</div>';
+                        str += '<span class="delect"><img src="img/delect.jpg" alt="" class="decimg"></span>';
+                        str += '</div>'
+                        str += '<p class="zeng">【买一赠一】</p>';
+                        str += '<p class="p1">单价：';
+                        str += '<span class="newprice">￥'+data[i].price+'</span></p>';
+                        str += '<p class="p2">';
+                        str += '<span class="zhekou">'+data[i].discount+'</span>';
+                        str += '<span class="oldprice">￥'+old_price+'</span>';
+                        str += '<div class="bar"><img src="img/bar.jpg" alt="" class="barpic"></div></p>';
+                        str += '</dd>';
+                        str += '</dl>';
+                    }
+                }
+                $(".cang").append(str);
+                gundong();
+            }
+        })
+    }
+    /*滚动*/
+    function gundong(){
+        var myiscroll = new IScroll(".shoucangMain",{vscrollbar:true});
+        document.addEventListener("touchmove",function(ev){
+            ev.preventDefault()
+        })
+    }
+    /*底部导航*/
+    $(".footer div").eq(0).on("touchend",function(){
+        window.location.href="index.html";
+    })
+    $(".footer div").eq(1).on("touchend",function(){
+        window.location.href="fenlei.html";
+    })
+    $(".footer div").eq(2).on("touchend",function(){
+        window.location.href="goodbar.html";
+    })
+    $(".footer div").eq(3).on("touchend",function(){
+        window.location.href="myshow.html";
+    })
+    $(".footer div").eq(4).on("touchend",function(){
+        window.location.href="more.html";
+    })
+</script>
+</body>
+</html>

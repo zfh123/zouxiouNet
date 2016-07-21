@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Title</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/rem.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            /*background: url("img/pic3.jpg") no-repeat;*/
+            /*background-size: 100% 100%;*/
+            position: relative;
+        }
+        .headO{
+            width:100%;
+            height: 2.6rem;
+            background: url("img/jieshao.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .headO1{
+            width:1.5rem;
+            height: 1rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            left:3%;
+            top: 30%;
+        }
+        .fenxiang{
+            width:2.7rem;
+            height: 1.5rem;
+            background: yellow;
+            opacity: 0;
+            position: absolute;
+            right:3%;
+            top:21%;
+        }
+        .swiper-container{
+            width:100%;
+            height: 22.8rem;
+            overflow: hidden;
+        }
+        .swiper-pagination-bullet{
+            background: #fff;
+            opacity: 1;
+        }
+        .swiper-pagination-bullet-active{
+            background: red;
+            opacity: 1;
+        }
+        /*底部导航*/
+        .footer{
+            width: 100%;
+            height: 2.975rem;
+            background: #484850;
+            position: absolute;
+            left:0;
+            bottom:0;
+            display: -webkit-box;/*弹性盒布局为横向排布*/
+        }
+        .footer div{
+            width: 5.2rem;
+            font-size: 1rem;
+            font-weight: 900;
+            text-align: center;
+            line-height: 2.85rem;
+            color: #fff;
+            border-top:0.125rem solid #484850;
+            height: 2.85rem;
+            -webkit-box-flex: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="headO">
+        <div class="headO1"></div>
+        <div class="fenxiang"></div>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper"></div>
+        <!--如果需要分页器-->
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="footer">
+        <div>介绍</div>
+        <div>详情</div>
+        <div style="border-color:red">实拍</div>
+    </div>
+</div>
+<script>
+    $(".headO1").on("touchend",function(){
+        window.location.href="fenlei.html";
+    })
+    $(".footer div").on("touchend",function(){
+        $(this).css("borderColor","red");
+        $(this).siblings().css("borderColor","#484850");
+    })
+    $(".footer div:eq(0)").on("touchend",function(){
+        window.location.href="detail.html";
+    })
+    $(".footer div:eq(1)").on("touchend",function(){
+        window.location.href="goodsdal.html";
+    })
+
+    window.onload=function(){
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            // 如果需要分页器
+            pagination: '.swiper-pagination',
+        })
+    }
+    $.ajax({
+        url:"http://datainfo.duapp.com/shopdata/getGoods.php",
+        dataType:"jsonp",
+        data:{
+            userID:localStorage.name,
+            goodsID:localStorage.detailimg
+        },
+        success:function(data){
+            console.log(data);
+            var html ="";
+            for(var i in data){
+                var spval = data[i].imgsUrl;
+//                    console.log(spval);
+                var jsonval = JSON.parse(spval);
+                for(var j in jsonval){
+//                        console.log(jsonval[j])
+                    html += '<div class="swiper-slide"><img src="'+jsonval[j]+'" style="width: 100%;height:22.8rem ;" /></div>';
+                }
+            }
+            $(".swiper-wrapper").append(html);
+        }
+    })
+</script>
+</body>
+</html>
